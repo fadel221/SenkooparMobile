@@ -8,8 +8,6 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AuthService {
 
-  
-
   link=environment.url+"login_check";
 
   constructor (private http: HttpClient,private _router:Router) 
