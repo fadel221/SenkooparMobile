@@ -3,26 +3,36 @@
 <ion-content [fullscreen]="true">
  
     <ion-card>
-      <img padding src='../../assets/images/logo_SA.jpeg' style="width:100%;height: 100%;" alt=""/>
+      <img  src='../../assets/images/logo_SA.jpeg' style="width:35%;height: 35%;position: relative;top:30%;left:30%" alt=""/>
     </ion-card>
 
-    <div class="form" style="margin: 10px;position: relative;top:10px;">
-    <ion-item style="margin: 20px;position: relative;top:10px;">
-      <ion-label position="floating" >Telephone</ion-label>
-      <ion-input  type="input" placeholder="779349340"></ion-input>
-    </ion-item>
-    
-    <ion-item style="margin: 20px;position: relative;top:10px;">
-      <ion-label position="floating" >Mot de passe</ion-label>
-      <ion-input  type="password" placeholder="*****"></ion-input>
-    </ion-item>
+    <div class="form" style="margin: 10px;position: relative;top:40px;">
+    <form #f="ngForm">
+        <ion-item style="margin: 20px;position: relative;top:10px;">
+          <ion-label position="floating" >Email</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <div style="margin: 20px;position: relative;color:red" *ngIf="email.invalid&&email.touched">
+          <span>*Champ obligatoire</span>
+      </div>
+        
+        <ion-item style="margin: 20px;position: relative;top:10px;">
+          <ion-label position="floating" >Mot de passe</ion-label>
+          <ion-input name="password" required  #password="ngModel" ngModel  type="password" placeholder="*****"></ion-input>
+        </ion-item>
+        <div style="margin: 20px;position: relative;color:red" *ngIf="password.invalid&&email.touched">
+          <span>*Champ obligatoire</span>
+      </div>
+  </form>
 
   </div>
 
     
-<div class="link-pad" style="margin: 30px;position: relative;top:20px;">
+<div class="link-pad" style="margin: 30px;position: relative;top:40px;">
   <ion-label color="secondary" >Mot de passe oublié?</ion-label>
 </div>
-
+<ion-button [disabled]="f.invalid" (click)="login(f)" color="secondary"  style="position: relative;top:70px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="tertiary">Connexion</ion-button>
 </ion-content>
+
+
 </div>
