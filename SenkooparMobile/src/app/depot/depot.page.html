@@ -1,0 +1,81 @@
+
+
+<ion-content>
+
+  <div class="content-header">
+    <ion-icon id="home" slot="start" name="home"></ion-icon>
+    <div id="logo-SA">
+    </div>
+    <div id="icone-depot">
+      <ion-icon name="return-up-forward-outline"></ion-icon>
+    </div>
+    <div id="title-header">
+      Dépot
+    </div>
+    <div id="bottom-bar">
+
+    </div>
+  </div>
+
+  <div class="content-form-depot">
+    <div id="content-menu-choice" padding>
+      <div class="content-menu" (click)="ShowAndHide(1)">
+          Emmetteur
+          <div class="menu-bar-bottom"></div>
+      </div>
+
+      <div class="content-menu" (click)="ShowAndHide(2)">
+        Bénéficiare
+        <div class="menu-bar-bottom"></div>
+      </div>
+    </div>
+    <div [hidden]="hide" id="content-form-emmeteur">
+      <form #f="ngForm">
+        <ion-item>
+          <ion-label position="floating" >Num CNI</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Prenom</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Nom</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Telephone</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Montant</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Frais</ion-label>
+          <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+        </ion-item>
+      </form>
+    </div>
+
+      <div [hidden]="!hide" id="content-form-beneficiaire">
+        <form #fi="ngForm">
+        
+          <ion-item>
+            <ion-label position="floating" >Prenom</ion-label>
+            <ion-input name="prenom" required  #prenom="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" >Nom</ion-label>
+            <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" >Telephone</ion-label>
+            <ion-input name="email" required  #email="ngModel" ngModel  type="input" placeholder="user@gmail.com"></ion-input>
+          </ion-item>
+        </form>
+        <ion-button  (click)="login(f)" color="secondary"  style="position: relative;top:140px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
+    </div>
+  </div>
+
+</ion-content>

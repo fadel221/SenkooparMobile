@@ -1,0 +1,30 @@
+
+<ion-content>
+
+    <div class="content-header">
+      <ion-icon name="list-outline"></ion-icon>
+      <div id="logo-SA">
+      </div> 
+      <div id="elipse">
+      </div>
+      <div class="container-solde">
+
+      </div>
+      
+    </div>
+
+    <div class="container-menu-list">
+      <ion-item padding button *ngFor="let l of list" routerLink={{l.url}}>
+        <ion-icon name="return-up-forward-outline"></ion-icon>
+        <ion-label >
+          {{l.name}}
+        </ion-label>
+        
+      </ion-item>
+    </div>
+
+    
+</ion-content>
+
+
+
