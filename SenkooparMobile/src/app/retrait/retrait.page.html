@@ -1,0 +1,122 @@
+
+
+<ion-content>
+
+  <div class="content-header">
+    <ion-icon id="home" routerLink="/accueil" slot="start" name="home"></ion-icon>
+    <div id="logo-SA">
+    </div>
+    <div id="icone-depot">
+      <ion-icon name="return-up-forward-outline"></ion-icon>
+    </div>
+    <div id="title-header">
+    Retrait
+    </div>
+    <div id="bottom-bar">
+
+    </div>
+  </div>
+
+  <div class="content-form-depot">
+
+    <div class="container-code">
+      <ion-item>
+        <ion-label position="floating" >Code</ion-label>
+        <ion-input (click)="GetTransaction()" [(ngModel)]="code" name="code" ></ion-input>
+      </ion-item>
+    
+    </div>
+
+    <div id="content-menu-choice" padding>
+      <div class="content-menu" (click)="ShowAndHide(1)">
+          Emmetteur
+          <div class="menu-bar-bottom"  [hidden]="hide">
+          </div>
+      </div>
+
+      <div class="content-menu" (click)="ShowAndHide(2)">
+        Bénéficiare
+        <div class="menu-bar-bottom" style="border: 2px solid red;" [hidden]="!hide"></div>
+      </div>
+    </div>
+    
+    <div [hidden]="hide" id="content-form-emmeteur" >
+      <ion-item>
+      <ion-label class="ion-text-wrap">
+        Num CNI<br>
+        {{clientDepot.numCIN}}
+               </ion-label>
+    </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Nom & Prenom<br>
+          {{clientDepot.nomComplet}}
+                 </ion-label>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Téléphone<br>
+          {{clientDepot.telephone}}
+                </ion-label>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Montant à envoyer<br>
+          {{transaction.montant}}
+              </ion-label>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Date d'envoi<br>
+          {{transaction.dateDepot}}
+                </ion-label>
+      </ion-item>
+    </div>
+    
+    
+    
+
+      <div [hidden]="!hide" id="content-form-beneficiaire" style="border: 2px solid red;">
+        
+        <ion-item>
+          <ion-label position="floating" >N° CNI</ion-label>
+          <ion-input name="numNCI" ></ion-input>
+        </ion-item>
+        <div id="content">
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            Nom & Prenom<br>
+            {{clientRetrait.nomComplet}}
+          </ion-label>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            Téléphone<br>
+            {{clientRetrait.telephone}}
+          </ion-label>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            Montant à envoyer<br>
+            {{transaction.montant}}
+          </ion-label>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            Date d'envoi<br>
+            {{transaction.dateDepot}}  
+          </ion-label>
+        </ion-item>
+      </div>
+      <ion-button style="position: relative;"  color="secondary" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
+    </div>
+
+  </div> 
+ 
+</ion-content>

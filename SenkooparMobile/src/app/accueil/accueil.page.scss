@@ -58,7 +58,25 @@ background: white;
 }
 ion-item
 {
-    width: 77%;
     height: 45px;
+    width:77%;
     border-bottom: 1px solid #E56946;
+
 }
+.container-montant
+{
+width: 100%;
+height: 50%;
+position: relative;
+display: inline-block;
+font-family: Helvetica;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 46px;
+/* identical to box height */
+color: #07AEEF;
+
+
+}
+

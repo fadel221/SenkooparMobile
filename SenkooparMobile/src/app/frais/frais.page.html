@@ -1,0 +1,39 @@
+
+
+<ion-content>
+
+  <div class="content-header">
+    <ion-icon id="home" routerLink="/accueil" slot="start" name="home"></ion-icon>
+    <div id="logo-SA">
+    </div>
+    <div id="icone-depot">
+      <ion-icon name="calculator-outline"></ion-icon>
+    </div>
+    <div id="title-header">
+      Calcul de frais
+    </div>
+    <div id="bottom-bar">
+
+    </div>
+  </div>
+
+  <div class="content-form-frais">
+    <form #f="ngForm">
+      <ion-item>
+        <ion-label>Type de Transaction</ion-label>
+        <ion-select name="type" #select="ngModel" ngModel value="Dépot" >
+          <ion-select-option value="Dépot">Dépot</ion-select-option>
+          <ion-select-option value="Retrait">Retrait</ion-select-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Montant</ion-label>
+      <ion-input name="montant" #montant="ngModel" ngModel  placeholder="1990199800141"></ion-input>
+    </ion-item>
+    <ion-button (click)="CalculeFrais(f.value)" color="secondary"  style="position: relative;top:20px;width: 40%;margin: auto;height: 25px;left:90px;" expand="block" shape="round" fill="outline" color="secondary">Calculer</ion-button>
+  </form>
+    
+  </div>
+
+
+</ion-content>

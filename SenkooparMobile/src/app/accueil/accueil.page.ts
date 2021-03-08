@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Storage} from '@ionic/storage';
+import { DepotService } from '../Services/depot.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.page.html',
@@ -7,45 +9,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private storage:Storage,private service:DepotService) { }
+  compte=""
+  helper=new JwtHelperService()
   ngOnInit() {
+    this.storage.get('token').then((val)=>{
+      var username=this.helper.decodeToken(val)['username']
+      this.service.GetUserCompte(username).subscribe(
+        (response:any)=>{
+          this.compte=response;
+          console.log(response);
+        })
+    })
   }
 
   list=[
     {
       name:'Dépot',
-      icone:'',
+      icone:'return-up-back',
       url:'/depot'
     },
     {
       name:'Retrait',
-      icone:'',
-      url:''
+      icone:'return-up-back',
+      url:'/retrait'
     },
     {
       name:'Mes Transactions',
-      icone:'',
-      url:''
+      icone:'sync', 
+      url:'transaction'
     },
     {
       name:'Toutes les Transactions',
-      icone:'',
-      url:''
+      icone:'sync-circle',
+      url:'transactions'
     },
     {
       name:'Mes commissions',
-      icone:''
+      icone:'reorder-three-outline',
+      url:'commissions'
     },
     {
       name:'Calculateur de Frais',
-      icone:'',
-      url:'',
-      
+      icone:'calculator-outline',
+      url:'/frais',
     },
     {
       name:'Déconnexion',
-      icone:'',
+      icone:'log-out-outline',
       url:''
     }
   ]

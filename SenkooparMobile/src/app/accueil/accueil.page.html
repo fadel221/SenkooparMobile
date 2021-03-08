@@ -2,27 +2,35 @@
 <ion-content>
 
     <div class="content-header">
-      <ion-icon name="list-outline"></ion-icon>
+      <ion-icon  name="list-outline"></ion-icon>
       <div id="logo-SA">
       </div> 
       <div id="elipse">
       </div>
       <div class="container-solde">
-
+            <div class="container-title-solde" style="width: 100%;height: 25%; position: relative;display: inline-block;">
+                Mon Solde disponible
+            </div>
+            <div class="container-montant">
+              {{compte.solde}}F
+          </div>
+          <div class="container-bottom-title" style="width: 100%;height: 25%; ;position: relative;display: inline-block;">
+            Mise à jour le 22/02/21 à 13:15
+        </div>
       </div>
       
     </div>
 
     <div class="container-menu-list">
       <ion-item padding button *ngFor="let l of list" routerLink={{l.url}}>
-        <ion-icon name="return-up-forward-outline"></ion-icon>
-        <ion-label >
+        <ion-icon slot="start" name="{{l.icone}}" style="color: #FA4A0C;"></ion-icon>
+        <ion-label>
           {{l.name}}
         </ion-label>
-        
       </ion-item>
     </div>
 
+    
     
 </ion-content>
 

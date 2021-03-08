@@ -31,7 +31,7 @@
 <div class="link-pad" style="margin: 30px;position: relative;top:40px;">
   <ion-label color="secondary" >Mot de passe oublié?</ion-label>
 </div>
-<ion-button routerLink="/accueil" [disabled]="f.valid" (click)="login(f)" color="secondary"  style="position: relative;top:70px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="tertiary">Connexion</ion-button>
+<ion-button  [disabled]="f.invalid" (click)="login(f)" color="secondary"  style="position: relative;top:70px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="tertiary">Connexion</ion-button>
 </ion-content>
 
 
