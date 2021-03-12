@@ -35,11 +35,7 @@ c//onst isExpired = helper.isTokenExpired(myRawToken);
         {
           console.log(val);
         })
-        Swal.fire({
-          title: 'Connexion reussie',
-          text: 'Connexion reussie',
-          icon: 'success',
-        })
+        
         this.router.navigate(['accueil'])
       },
       (error:any)=>

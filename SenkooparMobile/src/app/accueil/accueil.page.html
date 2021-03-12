@@ -22,7 +22,7 @@
     </div>
 
     <div class="container-menu-list">
-      <ion-item padding button *ngFor="let l of list" routerLink={{l.url}}>
+      <ion-item padding  button *ngFor="let l of list" routerLink={{l.url}} [hidden]="l.hide">
         <ion-icon slot="start" name="{{l.icone}}" style="color: #FA4A0C;"></ion-icon>
         <ion-label>
           {{l.name}}

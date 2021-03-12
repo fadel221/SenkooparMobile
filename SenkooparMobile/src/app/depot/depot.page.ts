@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import Swal from 'sweetalert2';
 import { DepotService } from '../Services/depot.service';
-
+import {Storage} from '@ionic/storage';
 @Component({
   selector: 'app-depot',
   templateUrl: './depot.page.html',
@@ -10,12 +11,27 @@ import { DepotService } from '../Services/depot.service';
 })
 export class DepotPage implements OnInit {
   
-hide=false;
+hide=true;
 ClientDepot:FormGroup
 ClientRetrait:FormGroup
-  constructor(private fb:FormBuilder,private service:DepotService) { }
+constructor(private fb:FormBuilder,private service:DepotService,private storage:Storage) 
+  {}
 
+compte:any;  
+helper=new JwtHelperService();
+frais:any
+montant:any
   ngOnInit() {
+
+    this.storage.get('token').then((val)=>{
+      var username=this.helper.decodeToken(val)['username']
+      this.service.GetUserCompte(username).subscribe(
+        (response:any)=>{
+          this.compte=response;
+          console.log(response);
+        })
+    })
+
     this.ClientDepot=this.fb.group(
       {
             nomComplet:['', Validators.required],
@@ -43,7 +59,7 @@ ClientRetrait:FormGroup
     var data={
       "compteDepot":
     {
-        "id":1
+        "id":this.compte['id']
     },
     "clientDepot":
     {
@@ -63,11 +79,12 @@ ClientRetrait:FormGroup
       (response:any)=>
       {
         Swal.fire({
-          title: 'Connexion reussie',
-          text: 'Connexion reussie',
+          title: 'Depot reussie',
+          text: 'Depot reussie',
           icon: 'success',
           
         })
+        console.log(response)
       },
       (error:any)=>
       {
@@ -80,6 +97,17 @@ ClientRetrait:FormGroup
       }
     )
       }
+    GetFrais()
+    {
+      this.service.GetFrais(this.montant).subscribe(
+        (response:any)=>
+        {
+          console.log(response);
+          this.frais=response+"F";
+          this.hide=false
+        }
+      )
+    }
     
   }
 

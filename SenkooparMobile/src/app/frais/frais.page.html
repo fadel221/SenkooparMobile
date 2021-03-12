@@ -28,7 +28,11 @@
       </ion-item>
     <ion-item>
       <ion-label position="floating" >Montant</ion-label>
-      <ion-input name="montant" #montant="ngModel" ngModel  placeholder="1990199800141"></ion-input>
+      <ion-input name="montant" (keyup)="hidden()" #montant="ngModel" ngModel  ></ion-input>
+    </ion-item>
+    <ion-item [hidden]="hide">
+      <ion-label position="floating" >Frais</ion-label>
+      <ion-input name="frais"  [(ngModel)]="frais"></ion-input>
     </ion-item>
     <ion-button (click)="CalculeFrais(f.value)" color="secondary"  style="position: relative;top:20px;width: 40%;margin: auto;height: 25px;left:90px;" expand="block" shape="round" fill="outline" color="secondary">Calculer</ion-button>
   </form>

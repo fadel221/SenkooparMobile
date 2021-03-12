@@ -10,7 +10,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { DepotPipe } from './depot.pipe';
 import { TokenAddInterceptor } from './Interceptor/TokenAddInterceptor';
 import { AuthGuard } from './auth.guard';
-//import { RequestInterceptorProvider } from './Interceptor/TokenAddInterceptor';
+//import { AuthGuard } from './auth.guard';
+// import { AuthGuard } from './auth.guard';
+// import { RequestInterceptorProvider } from './Interceptor/TokenAddInterceptor';
 
 @NgModule({
   declarations: [AppComponent, DepotPipe],
@@ -26,8 +28,9 @@ import { AuthGuard } from './auth.guard';
     
   ],
   providers: [
+    AuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {provide:HTTP_INTERCEPTORS,useClass: TokenAddInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass: TokenAddInterceptor,multi:true}
   ],
   bootstrap: [AppComponent],
 })

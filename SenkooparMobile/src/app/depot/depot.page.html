@@ -32,24 +32,24 @@
     <div [hidden]="hide" id="content-form-emmeteur">
       <form [formGroup]="ClientDepot">        
         <ion-item>
-          <ion-label position="floating" >Num CNI</ion-label>
-          <ion-input formControlName="numCIN"   placeholder="1990199800141"></ion-input>
+          <ion-label position="stacked" >Num CNI</ion-label>
+          <ion-input required formControlName="numCIN"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" >Nom Complet</ion-label>
-          <ion-input formControlName="nomComplet"  placeholder="Fadel"></ion-input>
+          <ion-label position="stacked" >Nom Complet</ion-label>
+          <ion-input required formControlName="nomComplet"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" >Telephone</ion-label>
-          <ion-input formControlName="telephone" placeholder="779349340"></ion-input>
+          <ion-label position="stacked" >Telephone</ion-label>
+          <ion-input required formControlName="telephone" ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating" >Montant</ion-label>
-          <ion-input formControlName="montant"   placeholder="175000F"></ion-input>
+          <ion-label position="stacked" >Montant</ion-label>
+          <ion-input required formControlName="montant"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating" >Frais</ion-label>
-          <ion-input type="input" name="frais" id="frais"  placeholder="11000F"></ion-input>
+        <ion-item [hidden]="true">
+          <ion-label position="stacked" >Frais</ion-label>
+          <ion-input type="input" name="frais"></ion-input>
         </ion-item>
       </form>
     </div>
@@ -57,13 +57,13 @@
       <div [hidden]="!hide" id="content-form-beneficiaire">
         <form [formGroup]="ClientRetrait">
           <ion-item>
-            <ion-label position="floating" >Nom Complet</ion-label>
-            <ion-input formControlName="nomComplet"  placeholder="user@gmail.com"></ion-input>
+            <ion-label position="stacked" >Nom Complet</ion-label>
+            <ion-input required formControlName="nomComplet" ></ion-input>
           </ion-item>
           
           <ion-item>
-            <ion-label position="floating" >Telephone</ion-label>
-            <ion-input formControlName="telephone" placeholder="user@gmail.com"></ion-input>
+            <ion-label position="stacked" >Telephone</ion-label>
+            <ion-input required formControlName="telephone"></ion-input>
           </ion-item>
         </form>
         <ion-button (click)="Depot()" color="secondary"  style="position: relative;top:140px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
