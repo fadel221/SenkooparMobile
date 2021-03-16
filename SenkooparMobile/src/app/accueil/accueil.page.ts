@@ -61,7 +61,7 @@ export class AccueilPage implements OnInit {
           {
             name:'Calculateur de Frais',
             icone:'calculator-outline',
-            hide:this.hide,
+            hide:false,
             url:'/frais',
           },
           {

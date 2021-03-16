@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
+import { Transaction } from '../entity/Transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -39,14 +40,20 @@ export class DepotService {
     return this.http.get(this.link+"transactions?codeTransfert="+data);
   }
 
-  GetOwnTransactions(id:string)
+  GetDepotTransactions(id:number)
   {
-    return this.http.get(this.link+"transactions?userRetrait.id="+id+"||userDepot.id="+id);
+    return this.http.get(this.link+"transactions?userDepot.id="+id);
+  }
+
+  GetRetraitTransactions(id:number)
+  {
+    return this.http.get(this.link+"transactions?userRetrait.id="+id);
   }
 
   GetUserByToken()
   {
     return this.http.get(this.link+"user/token");
   }
+
 
 }

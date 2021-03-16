@@ -4,6 +4,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import Swal from 'sweetalert2';
 import { DepotService } from '../Services/depot.service';
 import {Storage} from '@ionic/storage';
+import { DepotPopoverPage } from '../depot-popover/depot-popover.page';
+import { ModalController, PopoverController } from '@ionic/angular';
 @Component({
   selector: 'app-depot',
   templateUrl: './depot.page.html',
@@ -14,13 +16,26 @@ export class DepotPage implements OnInit {
 hide=true;
 ClientDepot:FormGroup
 ClientRetrait:FormGroup
-constructor(private fb:FormBuilder,private service:DepotService,private storage:Storage) 
+constructor(private fb:FormBuilder,private service:DepotService,private storage:Storage,public modalCtrl: ModalController) 
   {}
 
 compte:any;  
 helper=new JwtHelperService();
 frais:any
-montant:any
+montantForm:any
+async Depotpopover(){
+  const modal = await this.modalCtrl.create({
+    component: DepotPopoverPage,
+    componentProps: {
+      'clientdepot':this.ClientDepot.value,
+      'clientretrait':this.ClientRetrait.value,
+      'montant':this.montantForm.value
+    },
+    //cssClass:"mainAlert"
+  });
+  modal.style.cssText = '--width: 300px;  --height:470px;margin:auto;--border-radius:20px;'
+  return await modal.present();
+}
   ngOnInit() {
 
     this.storage.get('token').then((val)=>{
@@ -35,17 +50,21 @@ montant:any
     this.ClientDepot=this.fb.group(
       {
             nomComplet:['', Validators.required],
-            numCIN:['', Validators.required],
-            telephone:['', Validators.required],
-            montant:['', Validators.required]    
+            numCIN:['', Validators.required,[Validators.minLength(13),Validators.maxLength(13)]],
+            telephone:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],   
         })
 
         this.ClientRetrait=this.fb.group(
           {
                 nomComplet:['', Validators.required],
-                telephone:['', Validators.required],
+                telephone:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],
                 
           })
+
+          this.montantForm=this.fb.group(
+            {
+                  montant:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/[0-9]*$/")]],
+            })
 }
 
   ShowAndHide(data:any)
@@ -99,7 +118,7 @@ montant:any
       }
     GetFrais()
     {
-      this.service.GetFrais(this.montant).subscribe(
+      this.service.GetFrais(this.montantForm.value).subscribe(
         (response:any)=>
         {
           console.log(response);

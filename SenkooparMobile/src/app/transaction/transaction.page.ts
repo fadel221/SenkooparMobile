@@ -10,18 +10,27 @@ import { DepotService } from '../Services/depot.service';
 export class TransactionPage implements OnInit {
 
   constructor(private service:DepotService) { }
-  transactions:Transaction
+  transactions:any[]
+  depots:any[]
+  retraits:any[]
   User:any
+  type:string
   ngOnInit() {
     this.service.GetUserByToken().subscribe(
       (response:any)=>
       {
         this.User=response
-        this.service.GetOwnTransactions(this.User['id']).subscribe(
+        this.service.GetDepotTransactions(this.User.id).subscribe(
           (success:any)=>
           {
-            this.transactions=success['hydra:member'];
-            console.log(this.transactions)
+            this.depots=success["hydra:member"];
+            console.log(this.depots)
+          }
+        )
+        this.service.GetRetraitTransactions(this.User.id).subscribe(
+          (success:any)=>
+          {
+            this.retraits=success["hydra:member"];
           }
         )
       }

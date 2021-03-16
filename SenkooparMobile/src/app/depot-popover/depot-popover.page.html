@@ -1,0 +1,36 @@
+<!-- List of Text Items -->
+<ion-list>
+  <div class="content-header">
+    Confirmation
+  </div>
+  
+  <div class="content-field">
+      Emetteur
+    <br> {{clientdepot.nomComplet}}
+  </div>
+  <div class="content-field">
+      Telephone
+    <br> {{clientdepot.telephone}}
+  </div>
+  <div class="content-field">
+      numero CNI
+    <br> {{clientdepot.numCIN}}
+  </div>
+
+<div class="content-field">
+    Montant
+    <br> {{montant.montant}}
+</div>
+    
+<div class="content-field"> 
+    Recepteur
+    <br> {{clientretrait.nomComplet}}
+ </div>
+ <div class="content-field"> 
+    Telephone
+    <br> {{clientdepot.telephone}}
+ </div>
+
+  <ion-button (click)="dismiss()" style="background-color: #FA4A0C;color:#FA4A0C ; margin-top: 20px;margin-left: 10px;" >Annuler</ion-button>
+  <ion-button (click)="Depot()" (click)="Success()" style="margin-left: 33px;margin-top: 20px;" >Confirmer</ion-button>
+</ion-list>

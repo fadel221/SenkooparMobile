@@ -81,14 +81,13 @@
     
 
       <div [hidden]="!hide" id="content-form-beneficiaire">
-        
         <ion-item>
           <ion-label position="stacked" >N° CNI</ion-label>
           <ion-input name="numCIN" #numCIN="ngModel" ngModel required ></ion-input>
           <span *ngIf="numCIN.length==''">*Champ bligatoire</span>
         </ion-item>
         <div id="content">
-        <ion-item>
+          <ion-item>
           <ion-label class="ion-text-wrap">
             Nom & Prenom<br>
             {{clientRetrait.nomComplet}}

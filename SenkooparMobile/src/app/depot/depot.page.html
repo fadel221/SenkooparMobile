@@ -43,15 +43,19 @@
           <ion-label position="stacked" >Telephone</ion-label>
           <ion-input required formControlName="telephone" ></ion-input>
         </ion-item>
+      </form>
+
+      <form [formGroup]="montantForm">
         <ion-item>
           <ion-label position="stacked" >Montant</ion-label>
           <ion-input required formControlName="montant"></ion-input>
         </ion-item>
+      </form>
         <ion-item [hidden]="true">
           <ion-label position="stacked" >Frais</ion-label>
           <ion-input type="input" name="frais"></ion-input>
         </ion-item>
-      </form>
+      
     </div>
 
       <div [hidden]="!hide" id="content-form-beneficiaire">
@@ -66,7 +70,7 @@
             <ion-input required formControlName="telephone"></ion-input>
           </ion-item>
         </form>
-        <ion-button (click)="Depot()" color="secondary"  style="position: relative;top:140px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
+        <ion-button (click)="Depotpopover()" color="secondary"  style="position: relative;top:140px;width: 70%;margin: auto;height: 50px;" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
     </div>
   </div>
  

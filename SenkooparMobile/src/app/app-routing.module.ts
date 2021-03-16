@@ -63,6 +63,14 @@ const routes: Routes = [
     loadChildren: () => import('./retrait/retrait.module').then( m => m.RetraitPageModule)
     ,canActivate:[AuthGuard],
   },
+  {
+    path: 'depot-popover',
+    loadChildren: () => import('./depot-popover/depot-popover.module').then( m => m.DepotPopoverPageModule)
+  },
+  {
+    path: 'successpopover',
+    loadChildren: () => import('./successpopover/successpopover.module').then( m => m.SuccesspopoverPageModule)
+  },
 ];
 
 @NgModule({
