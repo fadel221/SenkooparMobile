@@ -30,45 +30,48 @@ export class AccueilPage implements OnInit {
         this.list=[
           {
             name:'Dépot',
-            icone:'return-up-back',
-            hide:false,
-            url:'/depot'
+            icone:'return-up-forward',
+            url:'/depot',
+            hide:false
           },
           {
             name:'Retrait',
             icone:'return-up-back',
-            hide:false,
-            url:'/retrait'
+            url:'/retrait',
+            hide:false
           },
           {
             name:'Mes Transactions',
-            icone:'sync', 
-            hide:false,
-            url:'/transaction'
+            icone:'sync',
+            url:'/transaction',
+            hide:false
           },
           {
             name:'Toutes les Transactions',
             icone:'sync-circle',
-            hide:this.hide,
-            url:'/transactions'
+            url:'/transactions',
+            hide:this.hide
+      
+      
           },
           {
             name:'Mes commissions',
             icone:'reorder-three-outline',
-            hide:this.hide,
-            url:'/commissions'
+            url:'/commissions',
+            hide:this.hide
           },
           {
             name:'Calculateur de Frais',
             icone:'calculator-outline',
-            hide:false,
             url:'/frais',
+            hide:false
+            
           },
           {
             name:'Déconnexion',
             icone:'log-out-outline',
-            hide:false,
-            url:'/home'
+            url:'/home',
+            hide:false
           }
         ]
           

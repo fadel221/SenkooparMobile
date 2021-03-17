@@ -1,9 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Successpopover</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
- {{transaction.codeTransfert}}
+  <div id="header">
+   <div id="header-text">
+    Transfert réussi
+   </div> 
+  </div>
+  <div id="montant">
+    <ion-label>INFO</ion-label><br>
+  Vous avez envoyé {{transaction.montant}}  à 
+  {{transaction.clientRetrait.nomComplet}} le {{transaction.dateDepot | date:'shortDate'}}<br>
+</div>
+<div id="code">
+   <ion-label>Code de Transfert</ion-label><br>
+  <h3>{{transaction.codeTransfert}}</h3>
+</div>
 </ion-content>

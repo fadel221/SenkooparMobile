@@ -24,6 +24,7 @@ helper=new JwtHelperService();
 frais:any
 montantForm:any
 async Depotpopover(){
+  console.log(this.montantForm.value,this.ClientDepot.value,this.ClientRetrait.value)
   const modal = await this.modalCtrl.create({
     component: DepotPopoverPage,
     componentProps: {
@@ -51,19 +52,19 @@ async Depotpopover(){
       {
             nomComplet:['', Validators.required],
             numCIN:['', Validators.required,[Validators.minLength(13),Validators.maxLength(13)]],
-            telephone:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],   
+            telephone:['', Validators.required]//,[Validators.minLength(9),Validators.maxLength(9),]]//Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],   
         })
 
         this.ClientRetrait=this.fb.group(
           {
                 nomComplet:['', Validators.required],
-                telephone:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],
+                telephone:['', Validators.required]//,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],
                 
           })
 
           this.montantForm=this.fb.group(
             {
-                  montant:['', Validators.required,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/[0-9]*$/")]],
+                  montant:['', Validators.required]//,[Validators.minLength(9),Validators.minLength(9)]]//,Validators.pattern("/[0-9]*$/")]],
             })
 }
 

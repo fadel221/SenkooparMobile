@@ -1,9 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Commissions</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
 
+  <div class="content-header">
+    <ion-icon id="home" routerLink="/accueil" slot="start" name="home"></ion-icon>
+    <div id="logo-SA">
+    </div>
+    <div id="icone-depot">
+      <ion-icon name="repeat-outline"></ion-icon>
+    </div>
+    <div id="title-header">
+      Mes Commissions
+    </div>
+    <div id="bottom-bar">
+
+    </div>
+  </div>
+
+  <div class="content-header-tab">
+      <select name="type" #type="ngModel" ngModel>
+        <option value="Type" ></option>
+        <option value="Depot">Depot</option>
+        <option value="Retrait">Retrait</option>
+      </select>
+      <input type="date"  name="debut">
+      <input type="date"  name="fin">
+  </div>
+  <div *ngIf="type.value=='Depot'" class="content-table-depot">
+  <table>
+    <thead>
+      <td>Date</td>
+      <td>Type</td>
+      <td>Montant</td>
+    </thead>
+    <tr *ngFor="let depot of depots">
+      <td>{{depot.dateDepot | date:'shortDate'}}</td>
+      <td>Depot</td>
+      <td>{{depot.fraisDepot}}</td>
+    </tr>
+  </table> 
+  </div>
+  <div *ngIf="type.value=='Retrait'" class="content-table-depot">
+    <table>
+      <thead>
+        <td>Date</td>
+        <td>Type</td>
+        <td>Montant</td>
+      </thead>
+      <tr *ngFor="let retrait of retraits">
+        <td>{{retrait.dateRetrait| date:'shortDate'}} </td>
+        <td>Retrait</td>
+        <td>{{retrait.fraisRetrait}}</td>
+      </tr>
+    </table> 
+
+</div>
 </ion-content>

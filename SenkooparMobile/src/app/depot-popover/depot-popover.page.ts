@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { DepotService } from '../Services/depot.service';
@@ -26,7 +26,7 @@ constructor(private fb:FormBuilder,private service:DepotService,private storage:
 }
   
 ngOnInit() {
-  
+  console.log(this.clientdepot,this.clientretrait,this.montant)
   this.storage.get('token').then((val)=>{
     var username=this.helper.decodeToken(val)['username']
     this.service.GetUserCompte(username).subscribe(
@@ -43,9 +43,9 @@ async Success(){
     componentProps: {
       'transaction':this.transaction
     },
-    cssClass:"mainAlert"
+    
   });
-  modal.style.cssText = '--min-width: 300px; --max-width:315px;  --height:300px;'
+  modal.style.cssText = '--width: 280px;  --height:260px;--border-radius:30px;--margin:auto'
   return await modal.present();
 }
 
@@ -54,7 +54,8 @@ async Success(){
 Depot()
 {
   
-  var data={
+  var data=
+  {
     "montant":Number(this.montant['montant']),
     "compteDepot":
   {
@@ -67,6 +68,7 @@ Depot()
     (response:any)=>
     {
       this.transaction=response
+      this.Success()
     },
     (error:any)=>
     {

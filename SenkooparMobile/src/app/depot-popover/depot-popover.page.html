@@ -28,9 +28,9 @@
  </div>
  <div class="content-field"> 
     Telephone
-    <br> {{clientdepot.telephone}}
+    <br> {{clientretrait.telephone}}
  </div>
 
-  <ion-button (click)="dismiss()" style="background-color: #FA4A0C;color:#FA4A0C ; margin-top: 20px;margin-left: 10px;" >Annuler</ion-button>
-  <ion-button (click)="Depot()" (click)="Success()" style="margin-left: 33px;margin-top: 20px;" >Confirmer</ion-button>
+  <ion-button id="btn-annuler" (click)="dismiss()" style="margin-top: 20px;margin-left: 10px;" >Annuler</ion-button>
+  <ion-button (click)="dismiss()" (click)="Depot()" style="margin-left: 33px;margin-top: 20px;" >Confirmer</ion-button>
 </ion-list>

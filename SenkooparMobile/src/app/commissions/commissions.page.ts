@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DepotService } from '../Services/depot.service';
 
 @Component({
   selector: 'app-commissions',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommissionsPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private service:DepotService) { }
+  transactions:any[]
+  depots:any[]
+  retraits:any[]
+  User:any
+  type:string
   ngOnInit() {
+    this.service.GetUserByToken().subscribe(
+      (response:any)=>
+      {
+        this.User=response
+        this.service.GetDepotTransactions(this.User.id).subscribe(
+          (success:any)=>
+          {
+            this.depots=success["hydra:member"];
+            console.log(this.depots)
+          }
+        )
+        this.service.GetRetraitTransactions(this.User.id).subscribe(
+          (success:any)=>
+          {
+            this.retraits=success["hydra:member"];
+          }
+        )
+      }
+    )
   }
 
 }
