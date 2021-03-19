@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { DepotService } from '../Services/depot.service';
 import {Storage} from '@ionic/storage';
 import { DepotPopoverPage } from '../depot-popover/depot-popover.page';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-depot',
   templateUrl: './depot.page.html',
@@ -52,7 +52,7 @@ async Depotpopover(){
       {
             nomComplet:['', Validators.required],
             numCIN:['', Validators.required,[Validators.minLength(13),Validators.maxLength(13)]],
-            telephone:['', Validators.required]//,[Validators.minLength(9),Validators.maxLength(9),]]//Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],   
+            telephone:['', Validators.required]//,[Validators.minLength(9),Validators.maxLength(9),]]//Validators.pattern("^(33|76|77|78|75)[0-9]*$")]],   
         })
 
         this.ClientRetrait=this.fb.group(

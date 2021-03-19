@@ -71,6 +71,10 @@ const routes: Routes = [
     path: 'successpopover',
     loadChildren: () => import('./successpopover/successpopover.module').then( m => m.SuccesspopoverPageModule)
   },
+  {
+    path: 'popup-frais',
+    loadChildren: () => import('./popup-frais/popup-frais.module').then( m => m.PopupFraisPageModule)
+  },
 ];
 
 @NgModule({

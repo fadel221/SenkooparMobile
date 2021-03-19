@@ -30,6 +30,16 @@ export class DepotService {
     return this.http.get(this.link+"user/frais/"+montant)
   }
 
+  CalculFrais(type:string,montant:number)
+  {
+    if (type==='depot')
+    {
+      return montant*0.1
+    }
+    else
+      return montant*0.2
+  }
+
   GetUserCompte(data:any)
   {
     return this.http.get(this.link+"user/"+data+"/compte");
