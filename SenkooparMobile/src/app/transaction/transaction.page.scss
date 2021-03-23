@@ -122,3 +122,78 @@ table
     top:210px;
     overflow: auto;
 }
+
+table
+{
+position: relative;
+top:20px;
+font-family: Helvetica;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 13px;
+    
+}
+
+.content-somme
+{
+    width:50%;
+    height: 5%;
+    left:47%;
+    border:2px solid red;
+    position: relative;
+    display: inline-block;
+    top:285px;
+    border-radius: 30px;
+}
+#content-title
+{
+    background: #FA4A0C;
+    width:40%;
+    height: 100%;
+    border-radius: 30px;
+    position: relative;
+    display: inline-block;
+}
+#title
+{
+    margin: auto;
+    position: relative;
+    display: inline-block;
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 14px;
+    color: #FFFFFF;
+    left:14px;
+    top:4px;
+}
+
+#content-total
+{
+    position: relative;
+    display: inline-block;
+    margin:auto;
+    width:60%;
+    height:100%;
+    border-radius: 30px;
+    
+}
+#somme-total
+{
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 13px;
+    /* identical to box height */
+    color: #000000;
+    position: relative;
+    display: inline-block;
+    margin:auto;
+    width: 100%;
+    height: 100%;
+    left: 8px;
+    top:4px;
+}

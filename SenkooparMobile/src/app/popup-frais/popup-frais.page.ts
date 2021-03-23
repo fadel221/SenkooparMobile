@@ -21,4 +21,6 @@ export class PopupFraisPage implements OnInit {
     this.modalCtrl.dismiss();  
   }
 
+  
+
 }

@@ -37,7 +37,8 @@ ngOnInit() {
   })
 }
 
-async Success(){
+async Success()
+{
   const modal = await this.modalCtrl.create({
     component: SuccesspopoverPage,
     componentProps: {

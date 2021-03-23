@@ -38,7 +38,6 @@ async Depotpopover(){
   return await modal.present();
 }
   ngOnInit() {
-
     this.storage.get('token').then((val)=>{
       var username=this.helper.decodeToken(val)['username']
       this.service.GetUserCompte(username).subscribe(
@@ -50,21 +49,21 @@ async Depotpopover(){
 
     this.ClientDepot=this.fb.group(
       {
-            nomComplet:['', Validators.required],
-            numCIN:['', Validators.required,[Validators.minLength(13),Validators.maxLength(13)]],
-            telephone:['', Validators.required]//,[Validators.minLength(9),Validators.maxLength(9),]]//Validators.pattern("^(33|76|77|78|75)[0-9]*$")]],   
+            nomComplet:['',[Validators.required]],
+            numCIN:['',[Validators.required,Validators.minLength(13),Validators.maxLength(13),Validators.pattern("[0-9]*$")]],
+            telephone:['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),Validators.pattern("^(33|76|77|78|75)[0-9]*$")]]
         })
-
+        console.log(this.ClientDepot)
         this.ClientRetrait=this.fb.group(
           {
-                nomComplet:['', Validators.required],
-                telephone:['', Validators.required]//,[Validators.minLength(9),Validators.minLength(9),Validators.pattern("/^(33|76|77|78|75)[0-9]*$/")]],
+                nomComplet:['', [Validators.required]],
+                telephone:['', [Validators.required,Validators.minLength(9),Validators.maxLength(9),Validators.pattern("^(33|76|77|78|75)[0-9]*$")]],
                 
           })
 
           this.montantForm=this.fb.group(
             {
-                  montant:['', Validators.required]//,[Validators.minLength(9),Validators.minLength(9)]]//,Validators.pattern("/[0-9]*$/")]],
+                  montant:['',[Validators.required,Validators.minLength(9),Validators.maxLength(9),Validators.pattern("^[0-9]*$")]],
             })
 }
 

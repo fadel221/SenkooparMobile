@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from '../entity/Transaction';
 import { DepotService } from '../Services/depot.service';
 
 @Component({
-  selector: 'app-transaction',
-  templateUrl: './transaction.page.html',
-  styleUrls: ['./transaction.page.scss'],
+  selector: 'app-share-transaction',
+  templateUrl: './share-transaction.page.html',
+  styleUrls: ['./share-transaction.page.scss'],
 })
-export class TransactionPage implements OnInit {
+export class ShareTransactionPage implements OnInit {
 
   constructor(private service:DepotService) { }
   transactions:any[]
@@ -65,3 +64,4 @@ export class TransactionPage implements OnInit {
   }
 
 }
+

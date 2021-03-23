@@ -75,6 +75,14 @@ const routes: Routes = [
     path: 'popup-frais',
     loadChildren: () => import('./popup-frais/popup-frais.module').then( m => m.PopupFraisPageModule)
   },
+  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+  },
+  {
+    path: 'share-transaction',
+    loadChildren: () => import('./share-transaction/share-transaction.module').then( m => m.ShareTransactionPageModule)
+  },
 ];
 
 @NgModule({

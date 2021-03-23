@@ -83,8 +83,8 @@
       <div [hidden]="!hide" id="content-form-beneficiaire">
         <ion-item>
           <ion-label position="stacked" >N° CNI</ion-label>
-          <ion-input name="numCIN" #numCIN="ngModel" ngModel required ></ion-input>
-          <span *ngIf="numCIN.length==''">*Champ bligatoire</span>
+          <ion-input name="numCIN" required [(ngModel)]="numCIN"></ion-input>
+          <span *ngIf="numCIN==''">*Champ bligatoire</span>
         </ion-item>
         <div id="content">
           <ion-item>
@@ -115,7 +115,7 @@
           </ion-label>
         </ion-item>
       </div>
-      <ion-button (click)="MakeRetrait(numCIN.value)" style="position: relative;"  color="secondary" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
+      <ion-button (click)="Retrait()" style="position: relative;"  color="secondary" expand="block" shape="round" fill="outline" color="secondary">Valider</ion-button>
     </div>
   </div>
   </div> 

@@ -18,15 +18,15 @@
   </div>
 
   <div class="content-header-tab">
-      <select name="type" #type="ngModel" ngModel>
-        <option value="Type" ></option>
-        <option value="Depot">Depot</option>
-        <option value="Retrait">Retrait</option>
+      <select name="type" [(ngModel)]="type">
+        <option value="" ></option>
+        <option value="depot">Depot</option>
+        <option value="retrait">Retrait</option>
       </select>
-      <input type="date"  name="debut">
-      <input type="date"  name="fin">
+      <input type="date" (change)="DateFilter()" [(ngModel)]="dateDebut"  name="debut">
+      <input type="date" (change)="DateFilter()" [(ngModel)]="dateFin"  name="fin">
   </div>
-  <div *ngIf="type.value=='Depot'" class="content-table-depot">
+  <div *ngIf="type=='depot'" class="content-table-depot">
   <table>
     <thead>
       <td>Date</td>
@@ -40,7 +40,7 @@
     </tr>
   </table> 
   </div>
-  <div *ngIf="type.value=='Retrait'" class="content-table-depot">
+  <div *ngIf="type=='retrait'" class="content-table-depot">
     <table>
       <thead>
         <td>Date</td>
@@ -53,6 +53,22 @@
         <td>{{retrait.fraisRetrait}}</td>
       </tr>
     </table> 
-
+</div>
+<div class="content-somme" *ngIf="type!=''">
+  <div id="content-title">
+    <div id="title">
+      Total
+    </div> 
+  </div>
+  <div id="content-total">
+    <div id="somme-total">
+      <div *ngIf="type=='retrait'">
+        {{sommeRetrait}}
+    </div>
+    <div *ngIf="type=='depot'">
+      {{sommeDepots}}
+  </div>
+    </div> 
+  </div>
 </div>
 </ion-content>

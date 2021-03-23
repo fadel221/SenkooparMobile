@@ -50,14 +50,42 @@ export class DepotService {
     return this.http.get(this.link+"transactions?codeTransfert="+data);
   }
 
-  GetDepotTransactions(id:number)
+  GetDepotTransactions(id:number,date_debut:string,date_fin:string)
   {
-    return this.http.get(this.link+"transactions?userDepot.id="+id);
+    if (date_debut=="")
+      date_debut=null
+    if (date_fin=="")
+      date_fin=null
+    return this.http.get(this.link+"transactions?userDepot.id="+id+"&dateDepot[after]="+date_debut+"&dateRetrait[before]="+date_fin);
   }
 
-  GetRetraitTransactions(id:number)
+  GetRetraitTransactions(id:number,date_debut:string,date_fin:string)
   {
-    return this.http.get(this.link+"transactions?userRetrait.id="+id);
+    if (date_debut=="")
+      date_debut=null
+    if (date_fin=="")
+      date_fin=null
+    return this.http.get(this.link+"transactions?userRetrait.id="+id+"&dateDepot[after]="+date_debut+"&dateRetrait[before]="+date_fin);
+  }
+
+  TotalMontant(tab:any)
+  {
+    var total=0
+    for (let i=0;i<tab.length;i++)
+    {
+      total+=tab[i]['montant']
+    }
+    return total
+  }
+
+  TotalFrais(tab:any,key:string)
+  {
+    var total=0
+    for (let i=0;i<tab.length;i++)
+    {
+      total+=tab[i][key]
+    }
+    return total
   }
 
   GetUserByToken()
